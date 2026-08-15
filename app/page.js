@@ -132,7 +132,7 @@ function Ventures() {
 
 function Model() {
   const cols = [
-    { n: "i", title: "Bouwen", body: "Een werkend product in weken, niet kwartalen. Geen roadmap-theater — bouwen wat nodig is om te testen of het klopt." },
+    { n: "i", title: "Bouwen", body: "Een werkend product in weken, niet kwartalen. Geen roadmap-theater. We bouwen wat nodig is om te toetsen of het idee klopt." },
     { n: "ii", title: "Lanceren", body: "De eerste betalende klant is het bewijs, niet een pilot of een intentieverklaring. Zonder omzet is er geen validatie." },
     { n: "iii", title: "Partneren", body: "Voor elk domein een partner die het kent. Wij brengen de bouw en de snelheid, zij de kennis van de markt." },
   ]
@@ -173,8 +173,8 @@ function Studio() {
     <section id="studio" className="section studio">
       <div className="wrap studio-grid">
         <p className="display display-statement studio-statement">
-          Vijftien jaar commercieel leiderschap op het snijvlak van business en technologie —
-          bouwen en verkopen zijn voor mij nooit twee aparte vakken geweest.
+          Vijftien jaar commercieel leiderschap op het snijvlak van business en technologie.
+          Bouwen en verkopen zijn voor mij nooit twee aparte vakken geweest.
         </p>
         <dl className="studio-facts">
           {facts.map(f => (
