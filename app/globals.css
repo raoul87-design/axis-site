@@ -266,12 +266,105 @@ button:focus-visible {
     var(--bg);
 }
 
-.visual-note {
-  color: var(--faint);
-}
-
 .venture-visual-switch {
   padding: var(--space-4);
+}
+
+/* ── stayd. UI-fragment (product-tokens, los van de Axis-tokens) ── */
+.stayd-mock {
+  width: 76%;
+  max-width: 220px;
+  background: #0b0f0d;
+  border: 1px solid #1e2823;
+  border-radius: 18px;
+  padding: 16px 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+}
+
+.stayd-mock-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stayd-mock-wm {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.03em;
+  color: #edf2ee;
+}
+
+.stayd-mock-dot {
+  color: #22c55e;
+}
+
+.stayd-mock-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #121815;
+  border: 1px solid #1e2823;
+  border-radius: 10px;
+  padding: 9px 11px;
+}
+
+.stayd-mock-check {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #22c55e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stayd-mock-commit {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 11.5px;
+  color: #edf2ee;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.stayd-mock-status {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 10px;
+  color: #22c55e;
+  margin-top: 1px;
+}
+
+.stayd-mock-week {
+  display: flex;
+  gap: 4px;
+}
+
+.stayd-mock-day {
+  flex: 1;
+  aspect-ratio: 1;
+  border: 1px solid #1e2823;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 8px;
+  color: #7c8a80;
+}
+
+.stayd-mock-day.done {
+  border-color: #22c55e;
+  background: rgba(34, 197, 94, 0.12);
+  color: #22c55e;
+}
+
+.stayd-mock-day.today {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 1px #22c55e inset;
 }
 
 .venture-body {

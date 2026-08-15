@@ -1,4 +1,4 @@
-import { Gloock, Fraunces, Inter, DM_Mono } from "next/font/google"
+import { Gloock, Fraunces, Inter, DM_Mono, Space_Grotesk } from "next/font/google"
 import "./globals.css"
 
 const gloock = Gloock({
@@ -26,6 +26,13 @@ const dmMono = DM_Mono({
   variable: "--font-dm-mono",
 })
 
+// Alleen voor het stayd.-productwoordmerk in de ventures-visual — geen Axis-merkfont.
+const spaceGrotesk = Space_Grotesk({
+  weight: ["700"],
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+})
+
 export const metadata = {
   title: "Axis — AI-gedreven platformen, van concept tot betalende klant",
   description: "Axis is een venture studio uit Twente. AI-gedreven platformen, van concept tot betalende klant.",
@@ -33,7 +40,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="nl" className={`${gloock.variable} ${fraunces.variable} ${inter.variable} ${dmMono.variable}`}>
+    <html lang="nl" className={`${gloock.variable} ${fraunces.variable} ${inter.variable} ${dmMono.variable} ${spaceGrotesk.variable}`}>
       <body>{children}</body>
     </html>
   )

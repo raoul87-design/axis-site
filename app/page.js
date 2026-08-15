@@ -32,6 +32,52 @@ function Hero() {
   )
 }
 
+function StaydVisual() {
+  const days = ["M", "D", "W", "D", "V", "Z", "Z"]
+  const done = [0, 1, 3]
+  const today = 3
+  return (
+    <div className="stayd-mock">
+      <div className="stayd-mock-top">
+        <span className="stayd-mock-wm">
+          stayd<span className="stayd-mock-dot">.</span>
+        </span>
+        <svg viewBox="0 0 40 40" width="30" height="30">
+          <circle cx="20" cy="20" r="16" fill="none" stroke="#1E2823" strokeWidth="4" />
+          <circle
+            cx="20" cy="20" r="16" fill="none" stroke="#22C55E" strokeWidth="4"
+            strokeDasharray="100.5" strokeDashoffset="30" strokeLinecap="round"
+            transform="rotate(-90 20 20)"
+          />
+        </svg>
+      </div>
+
+      <div className="stayd-mock-card">
+        <span className="stayd-mock-check">
+          <svg viewBox="0 0 14 14" width="10" height="10">
+            <polyline points="2,7 6,11 12,3" fill="none" stroke="#0B0F0D" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
+        <div>
+          <p className="stayd-mock-commit">Ochtendrun</p>
+          <p className="stayd-mock-status">Voltooid</p>
+        </div>
+      </div>
+
+      <div className="stayd-mock-week">
+        {days.map((d, i) => (
+          <span
+            key={i}
+            className={`stayd-mock-day${done.includes(i) ? " done" : ""}${i === today ? " today" : ""}`}
+          >
+            {d}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 function Ventures() {
   return (
     <section id="ventures" className="section">
@@ -40,7 +86,7 @@ function Ventures() {
         <div className="ventures">
           <article className="venture venture-stayd">
             <div className="venture-visual venture-visual-stayd" aria-hidden="true">
-              <span className="mono visual-note">visual volgt — asset van Raoul</span>
+              <StaydVisual />
             </div>
             <div className="venture-body">
               <p className="display venture-name">
@@ -120,8 +166,8 @@ function Studio() {
   const facts = [
     { k: "Basis", v: "Twente, NL" },
     { k: "Achtergrond", v: "Commercieel leiderschap, snijvlak business & technologie" },
-    { k: "Stack", v: "—" },
-    { k: "Entiteit", v: "Eenmanszaak · KvK 42061969" },
+    { k: "Stack", v: "Next.js, Supabase, Anthropic Claude, Vercel" },
+    { k: "Entiteit", v: "Eenmanszaak · KVK 42061969" },
   ]
   return (
     <section id="studio" className="section studio">
@@ -161,7 +207,7 @@ function Footer() {
     <footer className="footer">
       <div className="wrap footer-row">
         <span className="wm grad footer-wm">axis</span>
-        <p className="mono">Axis App · KvK 42061969 · axisapp.nl</p>
+        <p className="mono">Axis App · KVK 42061969 · axisapp.nl</p>
       </div>
     </footer>
   )
