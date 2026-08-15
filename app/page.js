@@ -1,8 +1,12 @@
+import HeroMesh from "./HeroMesh"
+import ScrollReveal from "./ScrollReveal"
+import NavWordmarkVisibility from "./NavWordmarkVisibility"
+
 function Nav() {
   return (
     <header className="nav">
       <div className="wrap nav-row">
-        <a href="#" className="wm grad nav-wm">axis</a>
+        <a href="#" className="wm grad nav-wm" data-nav-wordmark>axis</a>
         <nav className="nav-links">
           <a href="#ventures" className="mono">Ventures</a>
           <a href="#model" className="mono">Model</a>
@@ -16,15 +20,18 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="hero">
-      <div className="hero-mesh" aria-hidden="true" />
+    <section id="hero" className="hero">
+      <HeroMesh />
+      <div className="hero-grain" aria-hidden="true" />
+      <div className="hero-dim" aria-hidden="true" />
       <div className="wrap hero-inner">
-        <p className="mono">Venture studio · Twente, NL</p>
+        <p className="mono hero-fade" style={{ animationDelay: "0ms" }}>Venture studio · Twente, NL</p>
         <h1 className="display display-hero hero-h1">
-          Een studio die platformen <em className="grad">bouwt én verkoopt.</em>
+          <span className="hero-h1-line">Een studio die platformen</span>
+          <span className="hero-h1-line hero-h1-cursive grad">bouwt én verkoopt.</span>
         </h1>
-        <p className="hero-sub">
-          Axis ontwikkelt AI-gedreven platformen. Niet alleen de software — ook de positionering,
+        <p className="hero-sub hero-fade" style={{ animationDelay: "460ms" }}>
+          Axis ontwikkelt AI-gedreven platformen. Niet alleen de software, ook de positionering,
           de pricing en de eerste betalende klanten. Want een product zonder commercie is een hobby.
         </p>
       </div>
@@ -82,13 +89,21 @@ function Ventures() {
   return (
     <section id="ventures" className="section">
       <div className="wrap">
-        <p className="mono section-label">Ventures</p>
+        <p className="mono section-label" data-reveal>Ventures</p>
         <div className="ventures">
-          <article className="venture venture-stayd">
+          <article
+            className="venture venture-stayd"
+            data-reveal
+            style={{ "--v-color": "var(--stayd)", transitionDelay: "80ms" }}
+          >
             <div className="venture-visual venture-visual-stayd" aria-hidden="true">
               <StaydVisual />
             </div>
             <div className="venture-body">
+              <div className="venture-index">
+                <span className="venture-num mono">01</span>
+                <span className="venture-underline" />
+              </div>
               <p className="display venture-name">
                 stayd<span style={{ color: "var(--stayd)" }}>.</span>
               </p>
@@ -103,7 +118,11 @@ function Ventures() {
             </div>
           </article>
 
-          <article className="venture venture-switch">
+          <article
+            className="venture venture-switch"
+            data-reveal
+            style={{ "--v-color": "var(--switch)", transitionDelay: "160ms" }}
+          >
             <div className="venture-visual venture-visual-switch" aria-hidden="true">
               <svg viewBox="0 0 200 200" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
                 <g fill="none" stroke="var(--switch)" strokeWidth="1">
@@ -116,15 +135,22 @@ function Ventures() {
               </svg>
             </div>
             <div className="venture-body">
+              <div className="venture-index">
+                <span className="venture-num mono">02</span>
+                <span className="venture-underline" />
+              </div>
+              <p className="display venture-name">The Switch</p>
               <p className="mono venture-status" style={{ color: "var(--switch)" }}>In aanbouw</p>
               <p className="venture-desc">
-                Een platform in aanbouw, samen met een co-founder. Meer volgt zodra er iets te laten
-                zien is.
+                The Switch — een platform in aanbouw. Nog niet live. Meer volgt zodra er iets te
+                laten zien is.
               </p>
             </div>
           </article>
         </div>
-        <p className="mono ventures-more">Meer ventures in ontwikkeling.</p>
+        <p className="mono ventures-more" data-reveal style={{ transitionDelay: "240ms" }}>
+          Meer ventures in ontwikkeling.
+        </p>
       </div>
     </section>
   )
@@ -139,21 +165,21 @@ function Model() {
   return (
     <section id="model" className="section">
       <div className="wrap">
-        <p className="mono section-label">Model</p>
-        <p className="display display-statement model-statement">
+        <p className="mono section-label" data-reveal>Model</p>
+        <p className="display display-statement model-statement" data-reveal style={{ transitionDelay: "80ms" }}>
           Wij bouwen in weken, lanceren met de eerste betalende klant als bewijs, en partneren met
           wie het domein kent.
         </p>
         <div className="model-cols">
-          {cols.map(c => (
-            <div key={c.n} className="model-col">
-              <p className="mono model-col-n">{c.n}</p>
+          {cols.map((c, i) => (
+            <div key={c.n} className="model-col" data-reveal style={{ transitionDelay: `${160 + i * 80}ms` }}>
+              <p className="mono model-col-n" style={{ animationDelay: `${160 + i * 80}ms` }}>{c.n}</p>
               <p className="display display-md model-col-title">{c.title}</p>
               <p className="model-col-body">{c.body}</p>
             </div>
           ))}
         </div>
-        <p className="model-fineprint">
+        <p className="model-fineprint" data-reveal style={{ transitionDelay: "400ms" }}>
           IP bij de studio, licentie naar de venture, vergoeding in equity plus dagtarief,
           gelijkgerichte belangen.
         </p>
@@ -172,13 +198,13 @@ function Studio() {
   return (
     <section id="studio" className="section studio">
       <div className="wrap studio-grid">
-        <p className="display display-statement studio-statement">
+        <p className="display display-statement studio-statement" data-reveal>
           Vijftien jaar commercieel leiderschap op het snijvlak van business en technologie.
           Bouwen en verkopen zijn voor mij nooit twee aparte vakken geweest.
         </p>
         <dl className="studio-facts">
-          {facts.map(f => (
-            <div key={f.k} className="studio-fact">
+          {facts.map((f, i) => (
+            <div key={f.k} className="studio-fact" data-reveal style={{ transitionDelay: `${i * 80}ms` }}>
               <dt className="mono">{f.k}</dt>
               <dd>{f.v}</dd>
             </div>
@@ -193,10 +219,12 @@ function Contact() {
   return (
     <section id="contact" className="section contact">
       <div className="wrap">
-        <a href="mailto:raoul@axisapp.nl" className="display display-hero contact-cta">
+        <a href="mailto:raoul@axisapp.nl" className="display display-hero contact-cta" data-reveal>
           <em>Iets bouwen? →</em>
         </a>
-        <p className="mono contact-address">raoul@axisapp.nl</p>
+        <p className="mono contact-address" data-reveal style={{ transitionDelay: "80ms" }}>
+          raoul@axisapp.nl
+        </p>
       </div>
     </section>
   )
@@ -216,6 +244,8 @@ function Footer() {
 export default function Home() {
   return (
     <>
+      <ScrollReveal />
+      <NavWordmarkVisibility />
       <Nav />
       <main>
         <Hero />

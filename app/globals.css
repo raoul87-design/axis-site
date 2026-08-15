@@ -148,6 +148,18 @@ button:focus-visible {
   }
 }
 
+/* ── Scroll reveal ── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 600ms ease-out, transform 600ms ease-out;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ── Nav ── */
 .nav {
   position: sticky;
@@ -168,6 +180,12 @@ button:focus-visible {
 
 .nav-wm {
   font-size: 23px;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.nav-wm.visible {
+  opacity: 1;
 }
 
 .nav-links {
@@ -197,23 +215,80 @@ button:focus-visible {
   overflow: hidden;
 }
 
-.hero-mesh {
+.hero-mesh-canvas {
   position: absolute;
   inset: 0;
-  background: var(--bg);
-  pointer-events: none;
   z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+.hero-dim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 62% 58% at 32% 46%,
+    rgba(17, 19, 17, 0.55) 0%,
+    rgba(17, 19, 17, 0.18) 55%,
+    transparent 75%
+  );
 }
 
 .hero-inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 820px;
 }
 
 .hero-h1 {
   margin-top: var(--space-3);
   color: var(--txt);
+}
+
+.hero-h1-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: heroLineIn 700ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-h1-line:first-child {
+  animation-delay: 100ms;
+}
+
+.hero-h1-line:last-child {
+  animation-delay: 280ms;
+}
+
+.hero-h1-cursive {
+  font-style: italic;
+  font-weight: 420;
+}
+
+.hero-fade {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: heroLineIn 700ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heroLineIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-sub {
@@ -267,7 +342,7 @@ button:focus-visible {
 }
 
 .venture-visual-switch {
-  padding: var(--space-4);
+  padding: var(--space-3);
 }
 
 /* ── stayd. UI-fragment (product-tokens, los van de Axis-tokens) ── */
@@ -375,6 +450,37 @@ button:focus-visible {
   gap: var(--space-1);
 }
 
+.venture-index {
+  position: relative;
+  display: inline-block;
+  margin-bottom: var(--space-1);
+}
+
+.venture-num {
+  color: var(--faint);
+  transition: color 0.2s ease;
+}
+
+.venture:hover .venture-num {
+  color: var(--v-color);
+}
+
+.venture-underline {
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 100%;
+  background: var(--v-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease;
+}
+
+.venture:hover .venture-underline {
+  transform: scaleX(1);
+}
+
 .venture-name {
   font-size: 34px;
   font-weight: 500;
@@ -432,6 +538,22 @@ button:focus-visible {
 .model-col-n {
   color: var(--faint);
   margin-bottom: var(--space-1);
+}
+
+.model-col.is-visible .model-col-n {
+  animation: modelNumeralFlash 1200ms ease-out forwards;
+}
+
+@keyframes modelNumeralFlash {
+  0% {
+    color: var(--faint);
+  }
+  33% {
+    color: var(--stayd);
+  }
+  100% {
+    color: var(--faint);
+  }
 }
 
 .model-col-title {
@@ -529,4 +651,36 @@ button:focus-visible {
 
 .footer-wm {
   font-size: 20px;
+}
+
+/* ── Reduced motion — hard off, show end state immediately ── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade,
+  .hero-h1-line {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .model-col-n,
+  .model-col.is-visible .model-col-n {
+    animation: none !important;
+    color: var(--faint) !important;
+  }
+
+  .nav-wm {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  .venture-underline,
+  .venture-num {
+    transition: none !important;
+  }
 }
