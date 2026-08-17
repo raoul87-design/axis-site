@@ -1,12 +1,11 @@
 import HeroMesh from "./HeroMesh"
 import ScrollReveal from "./ScrollReveal"
-import NavWordmarkVisibility from "./NavWordmarkVisibility"
 
 function Nav() {
   return (
     <header className="nav">
       <div className="wrap nav-row">
-        <a href="#" className="wm grad nav-wm" data-nav-wordmark>axis</a>
+        <a href="#" className="wm grad nav-wm">axis</a>
         <nav className="nav-links">
           <a href="#ventures" className="mono">Ventures</a>
           <a href="#model" className="mono">Model</a>
@@ -49,7 +48,7 @@ function StaydVisual() {
         <span className="stayd-mock-wm">
           stayd<span className="stayd-mock-dot">.</span>
         </span>
-        <svg viewBox="0 0 40 40" width="30" height="30">
+        <svg viewBox="0 0 40 40" width="52" height="52">
           <circle cx="20" cy="20" r="16" fill="none" stroke="#1E2823" strokeWidth="4" />
           <circle
             cx="20" cy="20" r="16" fill="none" stroke="#22C55E" strokeWidth="4"
@@ -61,7 +60,7 @@ function StaydVisual() {
 
       <div className="stayd-mock-card">
         <span className="stayd-mock-check">
-          <svg viewBox="0 0 14 14" width="10" height="10">
+          <svg viewBox="0 0 14 14" width="14" height="14">
             <polyline points="2,7 6,11 12,3" fill="none" stroke="#0B0F0D" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </span>
@@ -142,7 +141,7 @@ function Ventures() {
               <p className="display venture-name">The Switch</p>
               <p className="mono venture-status" style={{ color: "var(--switch)" }}>In aanbouw</p>
               <p className="venture-desc">
-                The Switch — een platform in aanbouw. Nog niet live. Meer volgt zodra er iets te
+                The Switch, een platform in aanbouw. Nog niet live. Meer volgt zodra er iets te
                 laten zien is.
               </p>
             </div>
@@ -245,7 +244,6 @@ export default function Home() {
   return (
     <>
       <ScrollReveal />
-      <NavWordmarkVisibility />
       <Nav />
       <main>
         <Hero />
