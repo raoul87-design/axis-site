@@ -26,7 +26,7 @@ function Hero() {
       <div className="wrap hero-inner">
         <p className="mono hero-fade" style={{ animationDelay: "0ms" }}>Venture studio · Twente, NL</p>
         <h1 className="display display-hero hero-h1">
-          <span className="hero-h1-line">Een studio die platformen</span>
+          <span className="hero-h1-line">Een studio die platformen</span>{" "}
           <span className="hero-h1-line hero-h1-cursive grad">bouwt én verkoopt.</span>
         </h1>
         <p className="hero-sub hero-fade" style={{ animationDelay: "460ms" }}>

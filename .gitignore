@@ -5,3 +5,5 @@ out
 .vercel
 *.log
 lighthouse-report.json
+
+.vercel
