@@ -30,8 +30,8 @@ function Hero() {
           <span className="hero-h1-line hero-h1-cursive grad">bouwt én verkoopt.</span>
         </h1>
         <p className="hero-sub hero-fade" style={{ animationDelay: "460ms" }}>
-          Axis ontwikkelt AI-gedreven platformen. Niet alleen de software, ook de positionering,
-          de pricing en de eerste betalende klanten. Want een product zonder commercie is een hobby.
+          Axis bouwt platformen samen met mensen die hun branche kennen. Jij weet wat de markt
+          nodig heeft, wij bouwen het product. Van eerste idee tot iets dat verkoopt.
         </p>
       </div>
     </section>
@@ -45,9 +45,10 @@ function StaydVisual() {
   return (
     <div className="stayd-mock">
       <div className="stayd-mock-top">
-        <span className="stayd-mock-wm">
-          stayd<span className="stayd-mock-dot">.</span>
-        </span>
+        <svg viewBox="0 0 64 24" width="64" height="24" className="stayd-mock-wm">
+          <text x="0" y="18" fontFamily="system-ui, -apple-system, sans-serif" fontWeight="700" fontSize="19" letterSpacing="-0.5" fill="#edf2ee">stayd</text>
+          <circle cx="57" cy="19.5" r="3" fill="#22c55e" />
+        </svg>
         <svg viewBox="0 0 40 40" width="52" height="52">
           <circle cx="20" cy="20" r="16" fill="none" stroke="#1E2823" strokeWidth="4" />
           <circle
@@ -157,7 +158,7 @@ function Ventures() {
 
 function Model() {
   const cols = [
-    { n: "i", title: "Bouwen", body: "Een werkend product in weken, niet kwartalen. Geen roadmap-theater. We bouwen wat nodig is om te toetsen of het idee klopt." },
+    { n: "i", title: "Bouwen", body: "Een werkend product in weken, niet kwartalen. Geen roadmap-theater. We bouwen wat nodig is om te toetsen of het idee klopt, met de nieuwste technieken waar die het product beter of de bouw sneller maken." },
     { n: "ii", title: "Lanceren", body: "De eerste betalende klant is het bewijs, niet een pilot of een intentieverklaring. Zonder omzet is er geen validatie." },
     { n: "iii", title: "Partneren", body: "Voor elk domein een partner die het kent. Wij brengen de bouw en de snelheid, zij de kennis van de markt." },
   ]
@@ -178,10 +179,6 @@ function Model() {
             </div>
           ))}
         </div>
-        <p className="model-fineprint" data-reveal style={{ transitionDelay: "400ms" }}>
-          IP bij de studio, licentie naar de venture, vergoeding in equity plus dagtarief,
-          gelijkgerichte belangen.
-        </p>
       </div>
     </section>
   )
@@ -190,17 +187,23 @@ function Model() {
 function Studio() {
   const facts = [
     { k: "Basis", v: "Twente, NL" },
-    { k: "Achtergrond", v: "Commercieel leiderschap, snijvlak business & technologie" },
-    { k: "Stack", v: "Next.js, Supabase, Anthropic Claude, Vercel" },
+    { k: "Achtergrond", v: "Vijftien jaar commercieel leiderschap, snijvlak business en technologie" },
+    { k: "Netwerk", v: "Specialisten voor maatwerk, per venture samengesteld" },
     { k: "Entiteit", v: "Eenmanszaak · KVK 42061969" },
   ]
   return (
     <section id="studio" className="section studio">
       <div className="wrap studio-grid">
-        <p className="display display-statement studio-statement" data-reveal>
-          Vijftien jaar commercieel leiderschap op het snijvlak van business en technologie.
-          Bouwen en verkopen zijn voor mij nooit twee aparte vakken geweest.
-        </p>
+        <div>
+          <p className="display display-statement studio-statement" data-reveal>
+            Vijftien jaar commercieel leiderschap op het snijvlak van business en technologie.
+            Bouwen en verkopen zijn voor mij nooit twee aparte vakken geweest.
+          </p>
+          <p className="studio-network" data-reveal style={{ transitionDelay: "80ms" }}>
+            Voor wat de studio zelf niet bouwt, staat een netwerk van specialisten klaar. Per
+            venture samengesteld, niet vooraf vastgelegd.
+          </p>
+        </div>
         <dl className="studio-facts">
           {facts.map((f, i) => (
             <div key={f.k} className="studio-fact" data-reveal style={{ transitionDelay: `${i * 80}ms` }}>

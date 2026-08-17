@@ -373,15 +373,8 @@ button:focus-visible {
 }
 
 .stayd-mock-wm {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-weight: 700;
-  font-size: 22px;
-  letter-spacing: -0.03em;
-  color: #edf2ee;
-}
-
-.stayd-mock-dot {
-  color: #22c55e;
+  width: 64px;
+  height: auto;
 }
 
 .stayd-mock-card {
@@ -464,7 +457,7 @@ button:focus-visible {
 }
 
 .venture-num {
-  color: var(--faint);
+  color: var(--dim);
   transition: color 0.2s ease;
 }
 
@@ -520,7 +513,7 @@ button:focus-visible {
 
 .ventures-more {
   margin-top: var(--space-4);
-  color: var(--faint);
+  color: var(--dim);
 }
 
 @media (max-width: 680px) {
@@ -548,7 +541,7 @@ button:focus-visible {
 }
 
 .model-col-n {
-  color: var(--faint);
+  color: var(--dim);
   margin-bottom: var(--space-1);
 }
 
@@ -558,13 +551,13 @@ button:focus-visible {
 
 @keyframes modelNumeralFlash {
   0% {
-    color: var(--faint);
+    color: var(--dim);
   }
   33% {
     color: var(--stayd);
   }
   100% {
-    color: var(--faint);
+    color: var(--dim);
   }
 }
 
@@ -576,15 +569,6 @@ button:focus-visible {
 .model-col-body {
   color: var(--dim);
   font-size: 15px;
-}
-
-.model-fineprint {
-  margin-top: var(--space-8);
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--line);
-  color: var(--faint);
-  font-size: 13.5px;
-  max-width: 64ch;
 }
 
 @media (max-width: 680px) {
@@ -605,6 +589,13 @@ button:focus-visible {
 .studio-statement {
   color: var(--txt);
   max-width: 42ch;
+}
+
+.studio-network {
+  margin-top: var(--space-4);
+  color: var(--dim);
+  max-width: 42ch;
+  font-size: 15px;
 }
 
 .studio-facts {
@@ -683,7 +674,7 @@ button:focus-visible {
   .model-col-n,
   .model-col.is-visible .model-col-n {
     animation: none !important;
-    color: var(--faint) !important;
+    color: var(--dim) !important;
   }
 
   .venture-underline,
