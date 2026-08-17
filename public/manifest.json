@@ -1,0 +1,13 @@
+{
+  "name": "Axis",
+  "short_name": "Axis",
+  "description": "Axis is een venture studio uit Twente. AI-gedreven platformen, van concept tot betalende klant.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111311",
+  "theme_color": "#111311",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
